@@ -1,8 +1,23 @@
-
-const Button = () => {
-  return (
-    <div className= 'btn btn-primary'>Button</div>
-  )
+interface Props {
+  children: string;
+  color?:
+    | "primary"
+    | "secondary"
+    | "success"
+    | "danger"
+    | "warning"
+    | "info"
+    | "light"
+    | "dark";
+  onClick: () => void;
 }
 
-export default Button
+const Button = ({ children, color = "primary", onClick }: Props) => {
+  return (
+    <button className={"btn btn-" + color} onClick={onClick}>
+      {children}
+    </button>
+  );
+};
+
+export default Button;
